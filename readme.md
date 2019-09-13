@@ -9,6 +9,11 @@ QQ自带的截图可以获取程序窗口大小，然后截取整个程序的界
 |![理想的截图](./readmeImage/normal.png)|![不理想的截图](./readmeImage/abnormal.png)|
 
 # 安装步骤
+- 1. 下载安装文件并解压  
+![注](./readmeImage/setup-1.png)
+
+- 2. 双击“**setup.exe**”  
+![注](./readmeImage/setup-2.png)
 
 # 使用说明
 ## 方法一：使用界面（每次只能处理一张图片）
@@ -26,9 +31,9 @@ QQ自带的截图可以获取程序窗口大小，然后截取整个程序的界
 
 - 点击“**保存**”按钮，修改后的图片将被另外保存下来
 
-|Before|After|
-|------|-----|
-|![Before](./readmeImage/abnormal.png)|![After](./readmeImage/abnormal(1).png)|
+    |Before|After|
+    |------|-----|
+    |![Before](./readmeImage/abnormal.png)|![After](./readmeImage/abnormal(1).png)|
 
 
 ## 方法二：拖动图片到程序上以执行程序（可以处理多张图片）
