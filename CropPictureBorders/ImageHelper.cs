@@ -71,7 +71,7 @@ namespace CropPictureBorders
         public static Image CropPictureForPreview(Image image)
         {
             // 如果图片比较小，就不裁剪
-            if (image.Width <= 300 || image.Height <= 300)
+            if (image.Width <= 200 || image.Height <= 200)
             {
                 return image;
             }
