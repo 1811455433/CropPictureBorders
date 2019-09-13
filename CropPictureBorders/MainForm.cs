@@ -23,15 +23,12 @@ namespace CropPictureBorders
         /// 处理后的图片
         /// </summary>
         private Image result;
-        public MainForm(params string[] args)
+        public MainForm()
         {
             InitializeComponent();
             LoadDefaultSetting();
-            StringBuilder builder = new StringBuilder();
-            foreach (string s in args)
-            {
-                builder.Append(s).Append("\n");
-            }
+            this.label1.Parent = this.pbBefore;
+            this.label1.Location = new System.Drawing.Point((this.pbBefore.Width - this.label1.Width) / 2, (this.pbBefore.Height - this.label1.Height) / 2);
         }
 
         /// <summary>
@@ -73,7 +70,7 @@ namespace CropPictureBorders
                 int width = this.result.Width - x - this.rightTrackBox.Value;
                 int height =this.result.Height - y - this.bottomTrackBox.Value;
                 this.result = ImageHelper.CutPicture(this.result, x, y, width, height);
-                this.pbAfter.Image = ImageHelper.CropPicture(this.result);
+                this.pbAfter.Image = ImageHelper.CropPictureForPreview(this.result);
                 this.btnSaveResult.Enabled = true;
             }
             catch {}
@@ -109,7 +106,7 @@ namespace CropPictureBorders
             string path = ((System.Array)e.Data.GetData(DataFormats.FileDrop)).GetValue(0).ToString();     //获取文件路径
             this.picturePath = path;
             Preview();
-            this.pbBefore.Image = ImageHelper.CropPicture(path);
+            this.pbBefore.Image = ImageHelper.CropPictureForPreview(path);
             Debug.WriteLine("拖动到控件上的文件路径为" + path);
         }
 
@@ -151,6 +148,20 @@ namespace CropPictureBorders
         {
             //调用系统默认的浏览器 
             System.Diagnostics.Process.Start("explorer.exe", "https://github.com/1811455433/CropPictureBorders");
+        }
+
+        /// <summary>
+        /// 切换预览框的背景颜色
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void PictureBox1_Click(object sender, EventArgs e)
+        {
+            if(this.colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                this.pbBefore.BackColor = this.colorDialog1.Color;
+                this.pbAfter.BackColor = this.colorDialog1.Color;
+            }
         }
     }
 }

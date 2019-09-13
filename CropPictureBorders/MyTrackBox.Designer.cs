@@ -39,10 +39,10 @@
             this.trackBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.trackBar1.AutoSize = false;
             this.trackBar1.LargeChange = 2;
-            this.trackBar1.Location = new System.Drawing.Point(41, 0);
+            this.trackBar1.Location = new System.Drawing.Point(26, 0);
             this.trackBar1.Maximum = 50;
             this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(150, 20);
+            this.trackBar1.Size = new System.Drawing.Size(174, 20);
             this.trackBar1.TabIndex = 0;
             this.trackBar1.TickStyle = System.Windows.Forms.TickStyle.None;
             this.trackBar1.ValueChanged += new System.EventHandler(this.TrackBar1_ValueChanged);
@@ -53,9 +53,9 @@
             this.lbTitle.AutoSize = true;
             this.lbTitle.Location = new System.Drawing.Point(3, 3);
             this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(35, 12);
+            this.lbTitle.Size = new System.Drawing.Size(17, 12);
             this.lbTitle.TabIndex = 1;
-            this.lbTitle.Text = "title";
+            this.lbTitle.Text = "上";
             // 
             // lbUnit
             // 

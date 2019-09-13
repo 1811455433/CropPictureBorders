@@ -117,7 +117,27 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAB3RJTUUH4wEJBAABbGI9/AAAAnxJREFU
+        OE9tke9LU1Echw/kOw31XfZ3jIn+G+Lraju7261R0RuLvHMkEkQQUVQQEaRTU9J+OPNNOneHhKTpzIrQ
+        4G56xDZzmz+m253fPuc651U68HAu997nOeeey+QYNrjF2zI/Ba/9IbgTtEi+C964gHtF4WMk1AonZMkb
+        g1d/MLhrbpVHIKZAXoJgalN4I5DcoOZExBY4B7rfGbw4u8oJEkG25rTw0oFQCYIJQqDhdKBayoAQIBn4
+        j2ynl9axk1UEBhJX8d0uF+SiPQC5lBJKDnKOkmoJkA2TDNVDKwjcXJupfZ68NzFkeMkWyP8SvNMUqpPW
+        QEwJ0pgnTx89VCHsidIAr2PtIubsEBOpp8mHNGQoMlCaWuGdW3941bY89WVw60IVhXiQ+rkJiei1RRrX
+        TUwTeosmYvmAiFA5khs2XM7RhJvhHBheYtSGyGWfg+4qWUTIigzwPdBaDuh5RKgDkScrj3ODht/5KqHJ
+        Z0wfKbDdawFGlxQHedQsdXmpHKkEGkFKE1HCTNhJKSg+Bdv2Q1Xti+vswfQWu090ZunReMD0XTcRISvS
+        xzdokDcjEK3VktOTWuILHTOT134vBtvjWceduaxjfKwUmOte2i2qN4jcPiIFkaBXp2Fez7T4JtO+pd3a
+        woYJ6Ji/ZiCeyb7Ud7KTo6b5tWeZrABHgOM3ulWF/D52GJjP1WjxTAjQEZDpRWyHIuEC6WGTTgX6wVkg
+        A5kjGkAvMDvmD+VJKY8UKGoFlmSghICUz0v5dEBSc3shw59NbUexchrynkW4uDHTl9D3/W0KXXRZK1cC
+        ctgjXbNZ9vl9sS42UmiC3FqmGZH6A88VdqD4bTJj/wDjeaMJ+r024AAAAABJRU5ErkJggg==
+</value>
+  </data>
   <data name="linkLabel1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
@@ -130,6 +150,9 @@
         e0+02+Oh5wAAAABJRU5ErkJggg==
 </value>
   </data>
+  <metadata name="colorDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>118, 17</value>
+  </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAMDAAAAEAIACoJQAAFgAAACgAAAAwAAAAYAAAAAEAIAAAAAAAACQAAAAAAAAAAAAAAAAAAAAA

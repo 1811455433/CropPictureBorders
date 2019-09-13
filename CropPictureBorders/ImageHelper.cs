@@ -45,34 +45,30 @@ namespace CropPictureBorders
      ************
     */
 
-
-
-
-
     /// <summary>
     /// 处理图片的工具类
     /// </summary>
     public static class ImageHelper
     {
         /// <summary>
-        /// 获取按照需要裁剪后的图片
+        /// 获取图片的四个角组成的新图片
         /// </summary>
         /// <param name="path">原图片的路径</param>
         /// <returns></returns>
-        public static Image CropPicture(string path)
+        public static Image CropPictureForPreview(string path)
         {
             // 打开图片
             Image image = Image.FromStream(File.OpenRead(path));
 
-            return CropPicture(image);
+            return CropPictureForPreview(image);
         }
-        
+
         /// <summary>
-        /// 获取按照需要裁剪后的图片
+        /// 获取图片的四个角组成的新图片
         /// </summary>
         /// <param name="image">原图片</param>
         /// <returns></returns>
-        public static Image CropPicture(Image image)
+        public static Image CropPictureForPreview(Image image)
         {
             // 如果图片比较小，就不裁剪
             if (image.Width <= 300 || image.Height <= 300)
@@ -80,7 +76,10 @@ namespace CropPictureBorders
                 return image;
             }
 
-            int width = 90, height = 90;  //截取的每小块图片的宽和高
+            int pbWidth = 200, pbHeigh = 200; // PictureBox的宽和高
+            int splitLineWidth = 20;    // 拼接两张图片时，两张图片分割处的分割线宽度
+            int width = (pbWidth - splitLineWidth) / 2 , height = (pbHeigh - splitLineWidth) / 2;  //截取的每小块图片的宽和高
+
             // 1. 获取左上100*100像素的图片
             Image leftTopImage = CutPicture(image, 0, 0, width, height);
 
@@ -94,19 +93,19 @@ namespace CropPictureBorders
             Image rightBottomImage = CutPicture(image, image.Width - width, image.Height - height, width, height);
 
             // 5. 拼接左上和右上图片，得到上半部分图片
-            Image topImage = JoinImage(20, JoinMode.Horizontal, leftTopImage, rightTopImage);
+            Image topImage = JoinImageWithSplitLine(splitLineWidth, JoinMode.Horizontal, leftTopImage, rightTopImage);
             leftTopImage.Dispose();         rightTopImage.Dispose();
 
             // 6. 拼接左下和右下图片，得到下半部分图片
-            Image bottomImage = JoinImage(20, JoinMode.Horizontal, leftBottomImage, rightBottomImage);
+            Image bottomImage = JoinImageWithSplitLine(splitLineWidth, JoinMode.Horizontal, leftBottomImage, rightBottomImage);
             leftBottomImage.Dispose();      rightBottomImage.Dispose();
 
             // 7. 拼接上半部分图片和下半部分图片，得到最终裁剪的结果
-            return JoinImage(20, JoinMode.Vertical, topImage, bottomImage);
+            return JoinImageWithSplitLine(splitLineWidth, JoinMode.Vertical, topImage, bottomImage);
         }
 
         /// <summary>
-        /// 图片裁剪，生成新图，保存在同一目录下,名字加_new，格式1.png  新图1_new.png
+        /// 图片裁剪，从从图片中剪切获得一块矩形区域内的图像
         /// </summary>
         /// <param name="image">要修改的图片</param>
         /// <param name="x">修改起点x坐标</param>
@@ -217,13 +216,13 @@ namespace CropPictureBorders
         }
         
         /// <summary>
-        /// 拼接图片
+        /// 拼接图片，带分割框
         /// </summary>
         /// <param name="lineWidth">拼接两张图片连接处的间隔宽度</param>
         /// <param name="mode">拼接方式</param>
         /// <param name="images">图片数组</param>
         /// <returns></returns>
-        private static Image JoinImage(int lineWidth, JoinMode mode, params Image[] images)
+        private static Image JoinImageWithSplitLine(int lineWidth, JoinMode mode, params Image[] images)
         {
             // 如果是0张或者1张图片，返回其本身
             if (images.Length <= 1)

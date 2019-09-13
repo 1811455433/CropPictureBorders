@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace CropPictureBorders
@@ -24,7 +21,7 @@ namespace CropPictureBorders
             {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new MainForm(args));
+                Application.Run(new MainForm());
             }
             else
             {
@@ -33,14 +30,7 @@ namespace CropPictureBorders
                 {
                     try
                     {
-                        Image result = Image.FromStream(File.OpenRead(path));
-                        int x = Properties.Settings.Default.leftValue;
-                        int y = Properties.Settings.Default.topValue;
-                        int width = result.Width - x - Properties.Settings.Default.rightValue;
-                        int height = result.Height - y - Properties.Settings.Default.bottomValue; ;
-                        result = ImageHelper.CutPicture(result, x, y, width, height);
-                        result.Save(GetSuitablePath(path));
-                        result.Dispose();
+                        new Thread(new ParameterizedThreadStart(CropImageAndSaveAs)).Start(path);
                     }
                     catch
                     {
@@ -48,6 +38,23 @@ namespace CropPictureBorders
                     }
                 }
             }
+        }
+
+        /// <summary>
+        /// 剪切图片并另存
+        /// </summary>
+        /// <param name="path">图片路径</param>
+        private static void CropImageAndSaveAs(object path)
+        {
+            string filePath = (string)path;
+            Image result = Image.FromStream(File.OpenRead(filePath));
+            int x = Properties.Settings.Default.leftValue;
+            int y = Properties.Settings.Default.topValue;
+            int width = result.Width - x - Properties.Settings.Default.rightValue;
+            int height = result.Height - y - Properties.Settings.Default.bottomValue; ;
+            result = ImageHelper.CutPicture(result, x, y, width, height);
+            result.Save(GetSuitablePath(filePath));
+            result.Dispose();
         }
 
         /// <summary>
